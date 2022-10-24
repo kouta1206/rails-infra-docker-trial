@@ -1,0 +1,1 @@
+t is a docker container for rails,mysql,puma
