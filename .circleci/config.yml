@@ -10,8 +10,14 @@ jobs:
     steps:
       - checkout:
           path: ~/rails-infra-docker-trial
-      - ruby/install-deps
-
+      - run:
+          command: bundle config set --local path 'vendor/bundle'
+      - run:
+          command: bundle install
+      - save_cache:
+          key: rails-infra-docker-trial-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
   test:
     docker:
       - image: circleci/ruby:2.7
