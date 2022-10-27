@@ -55,7 +55,7 @@ jobs:
       - run:
           name: heroku login
           command: heroku container:login
-      -run:
+      - run:
           name: docker tag
           command: docker tag hirao/rails-docker-trial registry.heroku.com/rails-dobbcker-trial/web
       - run:
