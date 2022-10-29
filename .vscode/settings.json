@@ -1,0 +1,12 @@
+{
+  "beautify.language": {
+            "html": [
+                "htm",
+                "html",
+                "erb"
+            ]
+        },
+  "emmet.includeLanguages": {
+          "erb": "html",
+      }
+}
