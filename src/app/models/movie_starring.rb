@@ -1,0 +1,2 @@
+class MovieStarring < ApplicationRecord
+end
