@@ -1,0 +1,18 @@
+<%= form_with(model: @movie, url: movies_regist_path, local: true) do |form| %>
+  <%= form.label :タイトル %>
+  <%= form.text_field :title %>
+
+  <%= form.label :監督 %>
+  <%= form.text_field :director %>
+
+  <%= form.label :公開日 %>
+  <%= form.date_field :release %>
+
+  <%= form.label :視聴日 %>
+  <%= form.date_field :viewing %>
+
+  <%= form.label :レビュー %>
+  <%= form.text_area :review %>
+
+  <%= form.submit :記録する %>
+<% end %>
