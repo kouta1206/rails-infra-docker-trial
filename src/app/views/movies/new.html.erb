@@ -1,18 +1,37 @@
-<%= form_with(model: @movie, url: movies_regist_path, local: true) do |form| %>
+<div class="container">
+  <%= form_with(model: @movie, url: movies_regist_path, local: true, class: "") do |form| %>
+  <div>
+    <img id="movie-img-prev" src="#" class="d-none">
+  </div>
+  <% if @movie.image_path.url.nil?  %>
+    <%= image_tag("no_image.png",style: "width: 200px; height: 250px;", id: "no-img")  %>
+  <% else %>
+    <%= image_tag @movie.image_path.url, class: "movie-img", id: "movie-img" %>
+  <% end %>
+  <%= form.label :画像 %>
+  <%= form.file_field :image_path, class: "form-control", id: "movie_image_upload" %>
+<div>
   <%= form.label :タイトル %>
-  <%= form.text_field :title %>
-
+  <%= form.text_field :title, class: "form-control" %>
+</div>
+<div class="">
   <%= form.label :監督 %>
-  <%= form.text_field :director %>
-
+  <%= form.text_field :director, class: "form-control" %>
+</div>
+<div class="">
   <%= form.label :公開日 %>
-  <%= form.date_field :release %>
-
+  <%= form.date_field :release, class: "form-control" %>
+</div>
+<div class="">
   <%= form.label :視聴日 %>
-  <%= form.date_field :viewing %>
-
+  <%= form.date_field :viewing, class: "form-control" %>
+</div>
+<div class="">
   <%= form.label :レビュー %>
-  <%= form.text_area :review %>
-
+  <%= form.text_area :review, class: "form-control" %>
+</div>
+<div class="">
   <%= form.submit :記録する %>
-<% end %>
+  <% end %>
+</div>
+</div>

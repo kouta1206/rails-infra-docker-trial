@@ -9,4 +9,6 @@ class Movie < ApplicationRecord
     validates :title
     validates :director
   end
+
+  mount_uploader :image_path, ImageUploader
 end
