@@ -9,8 +9,7 @@
 
 	<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 	<%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-	<%# <%= javascript_pack_tag 'hello_vue' %>
-	<%# <%= stylesheet_pack_tag 'hello_vue'  %>
+	<%= javascript_pack_tag 'main_vue' %>
 
 
 </head>
@@ -19,7 +18,9 @@
 	<% if user_signed_in?  %>
 		<%= render 'partial/navbar'  %>
 	<% end %>
+<div id="app">
 	<%= yield %>
+</div>
 </body>
 
 </html>
