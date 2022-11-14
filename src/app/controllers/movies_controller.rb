@@ -9,8 +9,8 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    hoge = @movie.starrings.build(starring_params)
-    binding.pry
+    @movie.starrings.build(starring_params)
+
     if @movie.save
       redirect_to movies_index_path
     else
