@@ -10,11 +10,14 @@ import TurbolinksAdapter from 'vue-turbolinks'
 Vue.use(TurbolinksAdapter)
 
 import  FormComponent  from '../FormComponent.vue'
+import StarRating from '../StarRating.vue'
+
 
 
 const elementVueRender = () => {
   const rootElement = document.getElementById('app')
   Vue.component('form-component', FormComponent)
+  Vue.component('star-rating', StarRating)
 
   new Vue({
     el:  rootElement

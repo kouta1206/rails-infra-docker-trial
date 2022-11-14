@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   def new
     @movie = Movie.new
   end
-  
+
   def create
     @movie = Movie.new(movie_params)
     binding.pry
@@ -19,6 +19,6 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :director, :release, :viewing, :review, :image_path).merge(user_id: current_user.id)
+    params.require(:movie).permit(:title, :director, :release, :viewing, :review, :evaluation, :image_path).merge(user_id: current_user.id)
   end
 end
