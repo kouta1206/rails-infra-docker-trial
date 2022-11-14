@@ -1,15 +1,15 @@
 <template>
   <div>
     <input type="hidden" name="movie[evaluation]" :value="rating" />
-    <StarRating v-model="rating"></StarRating>
+    <star-rating v-model="rating"></star-rating>
   </div>
 </template>
 
-<script>
-import { StarRating } from 'vue-rate-it';
+<script type="text/javascript">
+import { StarRating } from "vue-rate-it";
 export default {
   components: {
-    StarRating
+    StarRating,
   },
   data() {
     return {
@@ -19,6 +19,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

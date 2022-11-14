@@ -6,18 +6,20 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue/dist/vue.esm'
+
+
 import TurbolinksAdapter from 'vue-turbolinks'
 Vue.use(TurbolinksAdapter)
 
-import  FormComponent  from '../FormComponent.vue'
-import StarRating from '../StarRating.vue'
+import EvaluationInput from '../EvaluationInput.vue'
+import StarringInput from '../StarringInput.vue'
 
 
 
 const elementVueRender = () => {
   const rootElement = document.getElementById('app')
-  Vue.component('form-component', FormComponent)
-  Vue.component('star-rating', StarRating)
+  Vue.component('evaluation-input', EvaluationInput)
+  Vue.component('starring-input', StarringInput)
 
   new Vue({
     el:  rootElement
