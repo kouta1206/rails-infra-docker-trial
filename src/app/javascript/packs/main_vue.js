@@ -5,17 +5,23 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
-import App from '../app.vue'
+import Vue from 'vue/dist/vue.esm'
+import TurbolinksAdapter from 'vue-turbolinks'
+Vue.use(TurbolinksAdapter)
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
+import  FormComponent  from '../FormComponent.vue'
 
-  console.log(app)
-})
+
+const elementVueRender = () => {
+  const rootElement = document.getElementById('app')
+  Vue.component('form-component', FormComponent)
+
+  new Vue({
+    el:  rootElement
+  })
+}
+
+document.addEventListener('turbolinks:load', elementVueRender)
 
 
 // The above code uses Vue without the compiler, which means you cannot
