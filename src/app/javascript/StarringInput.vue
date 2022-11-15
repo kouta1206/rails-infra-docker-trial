@@ -9,6 +9,7 @@
     v-model="tag"
     :tags="tags"
     @tags-changed="newTags => tags = newTags"
+    placeholder="主演を入力ください"
   />
 </div>
 </template>
@@ -18,6 +19,12 @@ import { VueTagsInput } from "@johmun/vue-tags-input";
 export default {
   components: {
     VueTagsInput,
+  },
+  props: {
+    autocompleteStarringNames: {
+      type: Array,
+      default: []
+    },
   },
   data() {
     return {
