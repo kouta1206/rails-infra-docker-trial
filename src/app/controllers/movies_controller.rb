@@ -7,21 +7,26 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @movie.starrings.build
+    @movie.genres.build
+    @starring_names = Starring.all().map{ |starring| {"name" => starring.name} }
+    respond_to do |format|
+      format.html
+      format.json { render :json => @starring_names }
+    end
   end
 
   def create
     @movie = Movie.create(movie_params)
-    starring_params.each do |starring|
-      @movie.starrings.find_or_create_by(name: starring)
-    end
-
     if @movie.save
+      starring_params.each do |starring|
+        @movie.starrings.find_or_create_by(name: starring)
+      end
       redirect_to movies_index_path
     else
       render :new
-    ende
+    end
   end
-end
 
   private
 
