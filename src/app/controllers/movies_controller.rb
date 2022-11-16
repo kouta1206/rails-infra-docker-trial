@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
     @movie = Movie.create(movie_params)
     if @movie.save
       starring_params.each do |starring|
-        @movie.starrings.find_or_create_by(name: starring)
+        @movie.starrings.find_or_create_by!(name: starring)
       end
       redirect_to movies_index_path
     else
@@ -35,15 +35,11 @@ class MoviesController < ApplicationController
   end
 
   def starring_params
-    starring_names_params = []
 
     starring_json_params = params.require(:starring).permit(:name)
     starring_json_params_names = starring_json_params[:name]
     starring_names = JSON.parse(starring_json_params_names)
 
-    starring_names.each do |starring|
-      starring_names_params << starring["text"]
-    end
-    return starring_names_params
+    starring_names_params = starring_names.map { |starring_name| starring_name["text"] }
   end
 end
