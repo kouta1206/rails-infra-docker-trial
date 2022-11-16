@@ -13,6 +13,7 @@ Vue.use(TurbolinksAdapter)
 
 import EvaluationInput from '../EvaluationInput.vue'
 import StarringInput from '../StarringInput.vue'
+import GenreInput from "../GenreInput.vue";
 
 
 
@@ -20,6 +21,7 @@ const elementVueRender = () => {
   const rootElement = document.getElementById('app')
   Vue.component('evaluation-input', EvaluationInput)
   Vue.component('starring-input', StarringInput)
+  Vue.component('genre-input',GenreInput)
 
   new Vue({
     el:  rootElement
