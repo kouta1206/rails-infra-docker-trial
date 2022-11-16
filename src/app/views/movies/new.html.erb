@@ -33,6 +33,12 @@
             />
         </div>
         <div>
+        <%= form.label :ジャンル %>
+            <genre-input
+                :autocomplete-genre-names="<%= @genre_names.to_json %>"
+            />
+        </div>
+        <div>
             <%= form.label :公開日 %>
             <%= form.date_field :release, class: "form-control" %>
         </div>
