@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new
     @movie.starrings.build
     @movie.genres.build
-    @starring_names = Starring.all().map{ |starring| {"name" => starring.name} }
+    @starring_names = Starring.all().map{ |starring| {"text" => starring.name} }
     respond_to do |format|
       format.html
       format.json { render :json => @starring_names }
