@@ -3,6 +3,8 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @movies = Movie.all
+    movie = @movies.first.image_path
   end
 
   def new

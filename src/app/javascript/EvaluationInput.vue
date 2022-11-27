@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="hidden" name="movie[evaluation]" :value="rating" />
-    <star-rating v-model="rating"></star-rating>
+    <star-rating v-model="ratingOfNumber" :item-size="itemSize"></star-rating>
   </div>
 </template>
 
@@ -10,6 +10,15 @@ import { StarRating } from "vue-rate-it";
 export default {
   components: {
     StarRating,
+  },
+  props: {
+    itemSize: {
+      type: Number,
+      required: true,
+    },
+    ratingOfNumber: {
+      type: Number,
+    }
   },
   data() {
     return {

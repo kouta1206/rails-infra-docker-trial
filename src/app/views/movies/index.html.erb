@@ -1,1 +1,20 @@
-<h1>hello movies index!!</h1>
+<div class="container">
+	<div class="row">
+    <% @movies.each do |movie| %>
+		<div class="col">
+			<div class="card" style="width: 18rem;">
+                <img src="<%= movie.image_path.url.nil?  ?  "/assets/no_image.png" : movie.image_path.url %>" alt="">
+                <evaluation-input
+                    :item-size="15"
+                    :rating-of-number="<%= movie.evaluation %>"
+                ></evaluation-input>
+				<div class="card-body">
+					<h5 class="card-title"><%= movie.title %></h5>
+					<p class="card-text"><%= movie.review %></p>
+					<a href="#" class="btn btn-primary">詳細を見る</a>
+				</div>
+			</div>
+		</div>
+    <% end %>
+	</div>
+</div>
