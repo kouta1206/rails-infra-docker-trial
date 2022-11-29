@@ -4,7 +4,6 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    movie = @movies.first.image_path
   end
 
   def new
